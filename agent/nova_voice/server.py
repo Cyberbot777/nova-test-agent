@@ -21,12 +21,12 @@ logger = logging.getLogger("NovaVoiceServer")
 warnings.filterwarnings("ignore")
 
 
-async def websocket_handler(websocket, path, model_id, region):
+async def websocket_handler(websocket, model_id, region):
     """Handle WebSocket connections."""
     stream_manager = None
     forward_task = None
     
-    logger.info(f"New WebSocket connection from {websocket.remote_address}")
+    logger.info(f"New WebSocket connection")
     
     try:
         async for message in websocket:
@@ -125,7 +125,7 @@ async def run_server(host="localhost", port=8080, model_id="amazon.nova-sonic-v1
     
     try:
         async with websockets.serve(
-            lambda ws, path: websocket_handler(ws, path, model_id, region),
+            lambda ws: websocket_handler(ws, model_id, region),
             host,
             port
         ):

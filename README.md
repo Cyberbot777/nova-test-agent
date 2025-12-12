@@ -2,6 +2,17 @@
 
 A simple proof of concept for a streaming voice agent using **Amazon Nova 2.0 Sonic** - a speech-to-speech model with bidirectional streaming capabilities.
 
+## 🎉 **UPDATE: December 12, 2025 - NOVA 2 SONIC CONFIRMED!**
+
+✅ **Model Available:** `amazon.nova-2-sonic-v1:0` in US East-1  
+✅ **Strands SDK Support:** Experimental bidirectional streaming ready  
+✅ **Test Script Created:** Ready to validate connection  
+📚 **Documentation:** See `NOVA_SONIC_RESEARCH.md` and `PROGRESS_SESSION_1.md`
+
+**Status:** 🟢 **Ready to build** - Framework validated, dependencies updated
+
+---
+
 ## 🎯 Goal
 
 Create a voice agent where you can:

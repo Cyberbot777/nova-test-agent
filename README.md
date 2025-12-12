@@ -1,181 +1,186 @@
-# Nova Voice Agent POC
+# Nova Voice Agent
 
-A simple proof of concept for a streaming voice agent using **Amazon Nova 2.0 Sonic** - a speech-to-speech model with bidirectional streaming capabilities.
+Production-ready bidirectional streaming voice agent using **Amazon Nova 2.0 Sonic**.
 
-## UPDATE: December 12, 2025 - NOVA 2 SONIC CONFIRMED!
+## What This Is
 
-- **Model Available:** `amazon.nova-2-sonic-v1:0` in US East-1  
-- **Strands SDK Support:** Experimental bidirectional streaming ready  
-- **Test Script Created:** Ready to validate connection  
-- **Documentation:** See `NOVA_SONIC_RESEARCH.md` and `PROGRESS_SESSION_1.md`
+A voice agent with real-time speech-to-speech conversation:
+- Speak to the agent (microphone → Nova Sonic)
+- Agent responds with voice (Nova Sonic → speakers)
+- Text transcription displayed in real-time
+- No Polly needed - Nova Sonic handles both transcription and speech generation
 
-**Status:** Ready to build - Framework validated, dependencies updated
+**Model:** `amazon.nova-sonic-v1:0`  
+**Region:** `us-east-1`
 
 ---
 
-## Goal
+## Quick Start
 
-Create a voice agent where you can:
-- **Speak** to the agent (Nova transcribes)
-- Agent processes and responds
-- **Agent speaks back** (Nova generates speech)
-- **Text streams** to the screen in real-time
+### Prerequisites
+- Python 3.11+
+- Node.js 18+
+- AWS account with Bedrock access
+
+### 1. Setup (One-Time)
+
+**Frontend:**
+```bash
+cd frontend
+npm install
+```
+
+**Backend:**
+```bash
+cd agent
+pip install -r requirements.txt
+```
+
+**Credentials:**
+```bash
+cd agent
+cp env.example .env
+# Edit .env with your AWS credentials
+```
+
+### 2. Run
+
+**Terminal 1 - Backend:**
+```bash
+cd agent
+source .venv/Scripts/activate  # Windows: .venv/Scripts/activate
+python run_voice_server.py --port 8080
+```
+
+**Terminal 2 - Frontend:**
+```bash
+cd frontend
+npm start
+```
+
+**Browser:** http://localhost:3000
+
+### 3. Use
+1. Click "Start Conversation"
+2. Speak into your microphone
+3. Agent responds with voice
+
+---
 
 ## Project Structure
 
 ```
-NOVA/
-├── agent/              # Python agent using Strands SDK + Nova
-│   ├── nova_agent.py   # Main agent code (NEEDS NOVA INTEGRATION)
-│   └── requirements.txt
-├── backend/            # WebSocket/SSE server for audio streaming
-│   ├── server.js       # Express server (PLACEHOLDER - NEEDS NOVA AUDIO)
-│   └── package.json
-├── frontend/           # React UI with audio recording/playback
+nova-test-agent/
+├── agent/
+│   ├── nova_voice/           # Nova Sonic core implementation
+│   │   ├── s2s_events.py     # Event definitions
+│   │   ├── s2s_session_manager.py  # Stream manager
+│   │   └── server.py         # WebSocket server
+│   ├── run_voice_server.py   # Main entry point
+│   ├── requirements.txt      # Python dependencies
+│   ├── .env                  # AWS credentials (create from env.example)
+│   └── env.example           # Template for credentials
+│
+├── frontend/
 │   ├── src/
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   ├── index.css
-│   │   └── components/
-│   │       └── VoiceChat.jsx   # Chat interface (adapted from test-frontend)
-│   ├── index.html
-│   ├── package.json
-│   └── vite.config.js
-└── README.md           # This file
+│   │   ├── VoiceAgent.js     # Voice UI component
+│   │   ├── helper/           # Audio processing utilities
+│   │   └── components/       # React components
+│   └── package.json          # Node.js dependencies
+│
+└── backend/                  # Deprecated (use agent/ instead)
 ```
-
-## What Was Done
-
-### 1. Frontend (Copied from `test-frontend/client`)
-- [x] React app with Vite
-- [x] Streaming SSE handling
-- [x] Dark theme UI
-- [x] Real-time text display
-- [x] Typing animations
-- [x] Error handling
-- [ ] **NEEDS**: Audio recording (microphone access)
-- [ ] **NEEDS**: Audio playback for agent responses
-
-### 2. Backend (Skeleton from `test-frontend/proxy`)
-- [x] Express server structure
-- [x] CORS setup
-- [ ] **NEEDS**: WebSocket for audio streaming (not just SSE)
-- [ ] **NEEDS**: Nova Sonic API integration
-- [ ] **NEEDS**: Bidirectional audio stream handling
-
-### 3. Agent (Adapted from `ScoutAgent/test_agent.py`)
-- [x] Strands SDK setup
-- [x] BedrockModel configuration
-- [x] Async/await patterns
-- [x] Streaming response handling
-- [ ] **NEEDS**: Nova Sonic model integration
-- [ ] **NEEDS**: Audio input/output handling
-
-## Research Needed
-
-Before this POC can work, we need to determine:
-
-### 1. **Nova Sonic Model ID**
-- [ ] What is the exact Bedrock model ID? (e.g., `amazon.nova-sonic-v2:0`?)
-- [ ] Is it available in `us-east-1`?
-- [ ] What regions support Nova Sonic?
-
-### 2. **API Integration**
-- [ ] Does Strands SDK support Nova Sonic natively?
-- [ ] Or do we need direct Bedrock client (`boto3`) calls?
-- [ ] What's the API endpoint for bidirectional streaming?
-  - Is it `converse_stream`?
-  - A new Nova-specific API?
-  - WebRTC-based?
-
-### 3. **Audio Format Requirements**
-- [ ] Input audio format: PCM? Opus? MP3?
-- [ ] Sample rate: 16kHz? 48kHz?
-- [ ] Encoding: Linear16? Opus?
-- [ ] Chunk size for streaming?
-
-### 4. **Bidirectional Streaming**
-- [ ] How to send audio chunks while receiving responses?
-- [ ] Is it true bidirectional (full duplex)?
-- [ ] Or request/response with streaming?
-- [ ] Can the agent interrupt/barge-in?
-
-### 5. **Text + Audio Response**
-- [ ] Does Nova return both transcribed text AND audio?
-- [ ] Or just audio (and we need to transcribe it)?
-- [ ] How do we stream text to the frontend while audio plays?
-
-### 6. **Frontend Audio Handling**
-- [ ] Browser API: MediaRecorder? WebRTC? Web Audio API?
-- [ ] Format conversion in browser or backend?
-- [ ] How to play audio responses? (Audio element? Web Audio API?)
-
-## Quick Start (Once Research is Complete)
-
-### Prerequisites
-- Node.js 18+
-- Python 3.11+
-- AWS credentials configured
-- Access to Bedrock Nova models
-
-### Setup
-
-**1. Install Frontend**
-```bash
-cd frontend
-npm install
-npm run dev  # Runs on http://localhost:3000
-```
-
-**2. Install Backend**
-```bash
-cd backend
-npm install
-npm start  # Runs on http://localhost:3001
-```
-
-**3. Install Agent**
-```bash
-cd agent
-pip install -r requirements.txt
-python nova_agent.py  # Test in console first
-```
-
-## Resources to Check
-
-- [Amazon Nova 2 Documentation](https://docs.aws.amazon.com/nova/)
-- [Bedrock Converse API](https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html)
-- [Strands SDK Docs](https://strandsagents.com/latest/documentation/docs/)
-- AWS Bedrock pricing for Nova Sonic
-- Code examples for bidirectional audio streaming
-
-## Development Plan
-
-1. **Research Phase** (See checklist above)
-2. **Backend Integration** - Connect to Nova Sonic API
-3. **Audio Pipeline** - Browser → WebSocket → Nova → Browser
-4. **Frontend Audio** - Add microphone capture and playback
-5. **Testing** - Local voice interaction testing
-6. **Polish** - Error handling, UX improvements
-
-## Notes
-
-- **No AWS AgentCore deployment** - This is local testing only
-- **No tools/functions** - Simple conversation agent
-- **Streaming text is key** - Even though it's voice, we display text
-- **Start simple** - Get basic voice working before adding features
-
-## Contributing
-
-This is a personal POC. Once we get Nova Sonic working, we can:
-- Add conversation memory
-- Add custom system prompts
-- Add agent tools/functions
-- Deploy to production
 
 ---
 
-**Status:** Setup complete, awaiting Nova Sonic API research
+## Architecture
 
-**Next Step:** Research Nova Sonic API specifications and update integration code
+```
+Browser (localhost:3000)
+    │
+    │ WebSocket (audio streaming)
+    ▼
+Python Backend (localhost:8080)
+    │
+    │ invoke_model_with_bidirectional_stream
+    ▼
+Amazon Nova Sonic (Bedrock)
+    │
+    └── Speech-to-Speech
+```
 
+**Audio Flow:**
+- Input: 16kHz PCM (microphone)
+- Output: 24kHz PCM (speakers)
+- Encoding: Base64 over WebSocket
+
+---
+
+## Configuration
+
+### AWS Credentials
+
+Create `agent/.env`:
+```
+AWS_ACCESS_KEY_ID=your_key
+AWS_SECRET_ACCESS_KEY=your_secret
+AWS_DEFAULT_REGION=us-east-1
+```
+
+The `.env` file is in `.gitignore` and will not be committed.
+
+### Model Configuration
+
+Edit `agent/run_voice_server.py` to change:
+- `--model` - Nova Sonic model ID (default: `amazon.nova-sonic-v1:0`)
+- `--port` - WebSocket port (default: 8080)
+- `--region` - AWS region (default: us-east-1)
+
+---
+
+## Troubleshooting
+
+**Backend won't start:**
+- Check `agent/.env` exists with valid AWS credentials
+- Verify: `aws sts get-caller-identity`
+- Ensure Bedrock access in us-east-1
+
+**No audio:**
+- Allow microphone access in browser
+- Verify backend is running on port 8080
+- Check browser console for errors
+
+**WebSocket connection fails:**
+- Start backend before frontend
+- Check firewall isn't blocking port 8080
+- Verify WebSocket URL in frontend settings
+
+**Frontend won't start:**
+- Ensure `npm install` completed successfully
+- Check port 3000 is available
+- Delete `node_modules/` and reinstall if needed
+
+---
+
+## Dependencies
+
+**Python:**
+- `aws-sdk-bedrock-runtime` - Bedrock bidirectional streaming
+- `smithy-aws-core` - AWS authentication
+- `websockets` - WebSocket server
+- `python-dotenv` - Environment variable loading
+
+**JavaScript:**
+- `react` - UI framework
+- `@cloudscape-design/components` - AWS UI components
+
+---
+
+## License
+
+Internal use - Kind Lending
+
+---
+
+**Status:** Production ready  
+**Last Updated:** December 12, 2025

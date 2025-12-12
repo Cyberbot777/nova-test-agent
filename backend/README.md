@@ -1,41 +1,26 @@
-# Nova Voice Backend
+# Backend - DEPRECATED
 
-Express server for handling audio streaming between frontend and Nova Sonic API.
+**This Node.js backend is no longer used.**
 
-## Configuration
+The Nova Voice Agent now uses a Python backend.
 
-Create a `.env` file with:
-
-```env
-AWS_REGION=us-east-1
-NOVA_MODEL_ID=amazon.nova-sonic-v2:0
-PORT=3001
-```
-
-## Installation
+## Use the Python Backend Instead
 
 ```bash
-npm install
+cd agent
+python run_voice_server.py --port 8080
 ```
 
-## Running
+See `agent/README.md` for full instructions.
 
-```bash
-npm start       # Production
-npm run dev     # Development with auto-reload
-```
+## Why Python?
 
-## Current Status
+The Amazon Nova Sonic bidirectional streaming API uses the `aws-sdk-bedrock-runtime` Python package, which provides the `invoke_model_with_bidirectional_stream` method. This is not available in the JavaScript AWS SDK.
 
-**Placeholder Mode** - Text-only responses, audio integration pending
+## Files in This Folder
 
-## Endpoints
+These files are kept for reference but are not used:
+- `server.js` - Original placeholder Node.js server
+- `package.json` - Node.js dependencies
 
-- `GET /api/health` - Health check and configuration status
-- `POST /api/invoke` - Text invocation (placeholder, returns mock response)
-- WebSocket upgrade - Audio streaming (not yet implemented)
-
-## TODO
-
-See main README.md for Nova Sonic integration checklist.
-
+The actual working backend is in `agent/nova_voice/`.

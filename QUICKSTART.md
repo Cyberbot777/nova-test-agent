@@ -1,67 +1,79 @@
-# Quick Start Commands
+# Quick Start - Nova Voice Agent
 
-Copy and paste these commands to get started quickly.
+Run everything from THIS repo. No external dependencies.
 
-## Initial Setup (One-Time)
+## One-Time Setup
 
 ```bash
-# 1. Frontend
-cd frontend && npm install && cd ..
+# 1. Install Frontend
+cd frontend
+npm install
+cd ..
 
-# 2. Backend  
-cd backend && npm install && cd ..
-
-# 3. Agent (with virtual environment)
+# 2. Install Backend (Python)
 cd agent
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 cd ..
 ```
 
-## Running the POC
+## Running the Voice Agent
 
-**Open 3 terminal windows:**
+Open 2 terminal windows:
 
-### Terminal 1 - Frontend
-```bash
-cd frontend
-npm run dev
-```
-Opens on http://localhost:3000
+### Terminal 1 - Backend (Python)
 
-### Terminal 2 - Backend
-```bash
-cd backend
-npm start
-```
-Opens on http://localhost:3001
-
-### Terminal 3 - Agent Test (Optional)
 ```bash
 cd agent
-source venv/bin/activate  # Windows: venv\Scripts\activate
-python nova_agent.py
+export AWS_ACCESS_KEY_ID=YOUR_KEY
+export AWS_SECRET_ACCESS_KEY="YOUR_SECRET"
+export AWS_DEFAULT_REGION=us-east-1
+python run_voice_server.py --port 8080
 ```
 
-## Quick Test
+### Terminal 2 - Frontend (React)
 
-Once all running:
-1. Open browser to http://localhost:3000
-2. Type a message in the text box
-3. Click Send
-4. See placeholder response (Nova integration pending)
+```bash
+cd frontend
+npm start
+```
 
-## Current Status
+Opens at http://localhost:3000
 
-**Works:** Text streaming, UI, basic architecture  
-**Pending:** Nova Sonic API, audio recording, audio playback
+## Full Backend Command (Single Line)
 
-## Next Steps
+```bash
+cd agent && export AWS_ACCESS_KEY_ID=YOUR_KEY && export AWS_SECRET_ACCESS_KEY="YOUR_SECRET" && export AWS_DEFAULT_REGION=us-east-1 && python run_voice_server.py --port 8080
+```
 
-See `README.md` Section: **Research Needed** for Nova integration checklist.
+## Usage
 
----
+1. Open http://localhost:3000
+2. Click "Start Conversation"
+3. Speak into your microphone
+4. Nova responds with voice
 
-**Need help?** See `SETUP.md` for detailed setup and troubleshooting.
+## Kill All Processes
 
+```bash
+# Windows
+taskkill /F /IM python.exe
+taskkill /F /IM node.exe
+
+# Mac/Linux
+pkill -f python
+pkill -f node
+```
+
+## Troubleshooting
+
+**Backend won't start:**
+- Check AWS credentials are set correctly
+- Run `aws sts get-caller-identity` to verify
+
+**No audio:**
+- Allow microphone access in browser
+- Check that backend is running on port 8080
+
+**WebSocket errors:**
+- Make sure backend is running before frontend
+- Check firewall isn't blocking port 8080

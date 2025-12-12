@@ -5,7 +5,7 @@
 
 ---
 
-## ✅ What Was Built
+## What Was Built
 
 ### 1. **Frontend (React + Vite)**
 **Location:** `frontend/`
@@ -78,7 +78,7 @@
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 NOVA/
@@ -110,7 +110,7 @@ NOVA/
 
 ---
 
-## 🎯 What Works Right Now
+## What Works Right Now
 
 If you run the stack as-is (see QUICKSTART.md):
 
@@ -124,7 +124,7 @@ If you run the stack as-is (see QUICKSTART.md):
 
 ---
 
-## ⚠️ What Doesn't Work Yet
+## What Doesn't Work Yet
 
 ### Critical Missing Pieces:
 
@@ -150,7 +150,7 @@ If you run the stack as-is (see QUICKSTART.md):
 
 ---
 
-## 📚 Documentation Created
+## Documentation Created
 
 | File | Purpose |
 |------|---------|
@@ -166,7 +166,7 @@ Every file has clear comments marking what's a placeholder vs. what works.
 
 ---
 
-## 🔬 Research Checklist (from README.md)
+## Research Checklist (from README.md)
 
 Before Nova integration can proceed, research these:
 
@@ -183,7 +183,7 @@ Before Nova integration can proceed, research these:
 
 ---
 
-## 🎬 Next Steps
+## Next Steps
 
 1. **Research Phase**
    - Find Nova Sonic documentation
@@ -227,7 +227,7 @@ Before Nova integration can proceed, research these:
 
 ---
 
-## 💡 Design Decisions Made
+## Design Decisions Made
 
 1. **Keep it simple** - No tools, no complex features initially
 2. **Local-first** - No AWS deployment, just local testing
@@ -238,7 +238,7 @@ Before Nova integration can proceed, research these:
 
 ---
 
-## 📝 Notes for Next Session
+## Notes for Next Session
 
 When you open this in a new repo:
 
@@ -250,7 +250,7 @@ When you open this in a new repo:
 
 ---
 
-## 🎉 What's Great About This Setup
+## What's Great About This Setup
 
 - ✅ Clean, well-documented codebase
 - ✅ Modern tech stack (React, Vite, Express, Strands)

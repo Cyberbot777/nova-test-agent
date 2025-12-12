@@ -27,7 +27,7 @@ npm run dev     # Development with auto-reload
 
 ## Current Status
 
-⚠️ **Placeholder Mode** - Text-only responses, audio integration pending
+**Placeholder Mode** - Text-only responses, audio integration pending
 
 ## Endpoints
 

@@ -6,7 +6,7 @@
 
 ---
 
-## ✅ What We Accomplished
+## What We Accomplished
 
 ### 1. **Environment Setup Complete**
 - ✅ Python virtual environment created (`agent/.venv`)
@@ -21,7 +21,7 @@
 - ✅ Authenticated as `rhall@kindlending.com`
 - ✅ 22 Nova models available in account
 
-### 3. **Critical Discovery Made**  ⚠️
+### 3. **Critical Discovery Made**
 
 **IMPORTANT: `strands-amazon-nova` is NOT for Bedrock!**
 
@@ -44,7 +44,7 @@ The package connects to `api.nova.amazon.com` (Nova API Service), not AWS Bedroc
 
 ---
 
-## 📊 Test Results
+## Test Results
 
 ### Test 1: Strands Package (FAILED)
 ```
@@ -52,7 +52,7 @@ The package connects to `api.nova.amazon.com` (Nova API Service), not AWS Bedroc
 ```
 **Finding:** Module doesn't exist - wrong package!
 
-### Test 2: Bedrock Access (SUCCESS ✅)
+### Test 2: Bedrock Access (SUCCESS)
 ```
 [SUCCESS] amazon.nova-2-sonic-v1:0 is available!
 [INFO] Found 22 Nova models available
@@ -61,7 +61,7 @@ The package connects to `api.nova.amazon.com` (Nova API Service), not AWS Bedroc
 
 ---
 
-## 🛠️ Dependencies Installed
+## Dependencies Installed
 
 ### Python Packages (agent/.venv)
 - `strands-agents==1.19.0`
@@ -80,7 +80,7 @@ The package connects to `api.nova.amazon.com` (Nova API Service), not AWS Bedroc
 
 ---
 
-## 🎯 New Implementation Plan
+## New Implementation Plan
 
 ### Approach: Hybrid Integration
 
@@ -111,7 +111,7 @@ response = client.invoke_model_with_bidirectional_stream(
 
 ---
 
-## 📝 Updated Requirements
+## Updated Requirements
 
 ### Working Dependencies
 ```txt
@@ -132,7 +132,7 @@ strands-amazon-nova  # Wrong service!
 
 ---
 
-## 🔬 What We Need to Research Next
+## What We Need to Research Next
 
 ### 1. boto3 Bidirectional Streaming API
 - [ ] Find documentation for `invoke_model_with_bidirectional_stream()`
@@ -154,7 +154,7 @@ strands-amazon-nova  # Wrong service!
 
 ---
 
-## 💡 Advantages of This Approach
+## Advantages of This Approach
 
 **Why Custom Integration is OK:**
 1. ✅ Still follows company standards (Strands + AgentCore)
@@ -171,7 +171,7 @@ strands-amazon-nova  # Wrong service!
 
 ---
 
-## 🚀 Next Steps (Session 3)
+## Next Steps (Session 3)
 
 ### Immediate (Coffee Cup #4 ☕)
 1. Search for boto3 bidirectional streaming examples
@@ -240,7 +240,7 @@ strands-amazon-nova  # Wrong service!
 
 ---
 
-## ⏸️ Session End Status
+## Session End Status
 
 **Time Invested:** ~45-60 minutes  
 **Lines of Code:** ~350 (tests + documentation)  

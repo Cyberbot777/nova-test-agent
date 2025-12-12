@@ -32,7 +32,7 @@ export AWS_REGION=us-east-1
 
 ## Current State
 
-⚠️ **Placeholder Mode**
+**Placeholder Mode**
 - Using Claude Sonnet as placeholder model
 - Text input/output only
 - Streaming works

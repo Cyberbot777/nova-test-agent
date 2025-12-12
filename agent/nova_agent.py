@@ -69,7 +69,7 @@ async def run_console_mode():
     print("=" * 60)
     print("Nova Voice Agent - Console Test Mode")
     print("=" * 60)
-    print("\n⚠️  NOTE: Currently using text input (audio not yet integrated)")
+    print("\nNOTE: Currently using text input (audio not yet integrated)")
     print("Type 'quit' to exit\n")
     
     agent = await create_agent()
@@ -96,14 +96,14 @@ async def run_console_mode():
                     sys.stdout.flush()
             
             elapsed = time.perf_counter() - start
-            sys.stdout.write(f"\n\n⏱️  {elapsed:.2f}s\n\n")
+            sys.stdout.write(f"\n\n[Time: {elapsed:.2f}s]\n\n")
             sys.stdout.flush()
             
         except KeyboardInterrupt:
             print("\n\nGoodbye!")
             break
         except Exception as e:
-            print(f"\n❌ Error: {e}\n")
+            print(f"\n[ERROR] {e}\n")
             import traceback
             traceback.print_exc()
 
@@ -138,13 +138,13 @@ if __name__ == "__main__":
     print("\n" + "=" * 60)
     print("Nova Voice Agent")
     print("=" * 60)
-    print("\n🔬 Research Status:")
+    print("\nResearch Status:")
     print("   [ ] Nova Sonic model ID confirmed")
     print("   [ ] Audio format specifications")
     print("   [ ] Bidirectional streaming API")
     print("   [ ] Audio input handling")
     print("   [ ] Audio output handling")
-    print("\n📝 See README.md for full integration checklist")
+    print("\nSee README.md for full integration checklist")
     print("=" * 60 + "\n")
     
     # Run in console mode for now

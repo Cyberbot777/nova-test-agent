@@ -6,7 +6,7 @@
 
 ---
 
-## 📚 Official Documentation
+## Official Documentation
 
 - **Main Guide:** https://docs.aws.amazon.com/nova/latest/userguide/speech-bidirection.html
 - **Input Events:** https://docs.aws.amazon.com/nova/latest/nova2-userguide/sonic-input-events.html
@@ -15,7 +15,7 @@
 
 ---
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ### Event-Driven Bidirectional Streaming
 
@@ -229,7 +229,7 @@ Model confirms session ended
 
 ---
 
-## 🗣️ Available Voices
+## Available Voices
 
 ### US English
 - `matthew` (masculine)
@@ -252,7 +252,7 @@ Model confirms session ended
 
 ---
 
-## 🔧 Python SDK Usage
+## Python SDK Usage
 
 ### Package Required
 ```bash
@@ -296,7 +296,7 @@ response = await stream.output_stream.receive()
 
 ---
 
-## 🎯 Event Ordering Rules
+## Event Ordering Rules
 
 **Critical:** Events must be sent in correct order!
 
@@ -339,7 +339,7 @@ N. sessionEnd
 
 ---
 
-## ⚙️ Configuration Options
+## Configuration Options
 
 ### Inference Configuration
 - `maxTokens`: Maximum response length (default: 1024)
@@ -370,7 +370,7 @@ N. sessionEnd
 
 ---
 
-## 📝 Notes for Implementation
+## Notes for Implementation
 
 1. **UUIDs for IDs:** Use unique IDs for `promptName` and `contentName`
 2. **Base64 Encoding:** All audio must be base64-encoded
@@ -381,7 +381,7 @@ N. sessionEnd
 
 ---
 
-## 🚀 Next Steps
+## Next Steps
 
 1. Create basic text-to-speech test
 2. Add audio input handling

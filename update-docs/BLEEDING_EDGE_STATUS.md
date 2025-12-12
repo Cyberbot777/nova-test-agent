@@ -5,7 +5,7 @@
 
 ---
 
-## 🔍 What We Discovered
+## What We Discovered
 
 ### The Problem
 Nova 2 Sonic was released **10 days ago** (Dec 2, 2025).  
@@ -14,7 +14,7 @@ The bidirectional streaming API (`invoke_model_with_bidirectional_stream`) is **
 ### Current boto3 State
 - **Version:** 1.42.8 (latest stable)
 - **Has:** `converse_stream`, `invoke_model_with_response_stream`
-- **Missing:** `invoke_model_with_bidirectional_stream` ❌
+- **Missing:** `invoke_model_with_bidirectional_stream`
 
 ### AWS SDK Bedrock Runtime Package
 - **Package:** `aws-sdk-bedrock-runtime==0.2.0` (installed)
@@ -24,7 +24,7 @@ The bidirectional streaming API (`invoke_model_with_bidirectional_stream`) is **
 
 ---
 
-## 🤔 Why This Is Happening
+## Why This Is Happening
 
 1. **Nova Sonic is BRAND NEW** (10 days old)
 2. **AWS SDK updates lag behind service releases**
@@ -35,7 +35,7 @@ This is **normal** for cutting-edge R&D work!
 
 ---
 
-## 🎯 Our Options
+## Our Options
 
 ### Option A: Use Beta/Preview SDK (If Available)
 **Pros:**
@@ -88,7 +88,7 @@ This is **normal** for cutting-edge R&D work!
 
 ---
 
-## 💡 Recommended Approach: **Option B (Converse Stream)**
+## Recommended Approach: **Option B (Converse Stream)**
 
 **Why:**
 1. ✅ Works TODAY with Nova Sonic
@@ -104,7 +104,7 @@ This is **normal** for cutting-edge R&D work!
 
 ---
 
-## 📋 New Implementation Plan
+## New Implementation Plan
 
 ### Phase 1: Converse Stream POC (This Week)
 1. Test `converse_stream` with Nova Sonic
@@ -137,7 +137,7 @@ If this works, we have a viable path forward!
 
 ---
 
-## 📝 Key Learnings
+## Key Learnings
 
 ### What We Thought:
 - Bidirectional API would be in boto3
@@ -163,7 +163,7 @@ If this works, we have a viable path forward!
 
 ---
 
-## 🚀 Next Action
+## Next Action
 
 Test `converse_stream` with Nova Sonic to validate Option B works.
 

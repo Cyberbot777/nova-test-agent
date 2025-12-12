@@ -107,18 +107,18 @@ wss.on('connection', (ws) => {
 
 // Start server
 const server = app.listen(PORT, () => {
-  console.log('\n🚀 Nova Voice Backend Server');
+  console.log('\n=== Nova Voice Backend Server ===');
   console.log('═══════════════════════════════════════');
-  console.log(`📍 Server: http://localhost:${PORT}`);
-  console.log(`🌍 Region: ${AWS_REGION}`);
-  console.log(`🤖 Model: ${NOVA_MODEL_ID}`);
-  console.log(`⚠️  Status: Placeholder mode - Nova integration needed`);
+  console.log(`Server: http://localhost:${PORT}`);
+  console.log(`Region: ${AWS_REGION}`);
+  console.log(`Model: ${NOVA_MODEL_ID}`);
+  console.log(`Status: Placeholder mode - Nova integration needed`);
   console.log('═══════════════════════════════════════');
-  console.log('\n📚 Endpoints:');
+  console.log('\nEndpoints:');
   console.log(`   GET  /api/health  - Health check`);
   console.log(`   POST /api/invoke  - Text invocation (placeholder)`);
   console.log(`   WS   (upgrade)    - Audio streaming (placeholder)`);
-  console.log('\n📝 Next Steps:');
+  console.log('\nNext Steps:');
   console.log('   1. Research Nova Sonic API specifications');
   console.log('   2. Implement audio streaming integration');
   console.log('   3. Test with frontend audio capture');

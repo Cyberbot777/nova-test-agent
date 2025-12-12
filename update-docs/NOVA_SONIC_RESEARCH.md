@@ -7,7 +7,7 @@
 
 ---
 
-## ✅ Confirmed Details
+## Confirmed Details
 
 ### Model Information
 - **Model ID:** `amazon.nova-2-sonic-v1:0`
@@ -27,9 +27,9 @@
 
 ---
 
-## 🎯 Strands SDK Support
+## Strands SDK Support
 
-### ⚠️ IMPORTANT DISCOVERY (Dec 12, 2025)
+### IMPORTANT DISCOVERY (Dec 12, 2025)
 
 **`strands-amazon-nova` is NOT for Bedrock!**
 
@@ -73,7 +73,7 @@ pip install aws-sdk-bedrock-runtime>=0.2.0
 
 ---
 
-## 🏗️ Architecture Pattern
+## Architecture Pattern
 
 ### Strands SDK Approach (Recommended)
 ```python
@@ -100,7 +100,7 @@ async with BidiAgent(model=model) as agent:
 
 ---
 
-## 📋 Implementation Plan
+## Implementation Plan
 
 ### Phase 1: Local Testing (Current)
 1. ✅ Research Nova Sonic API
@@ -131,7 +131,7 @@ async with BidiAgent(model=model) as agent:
 
 ---
 
-## 🔬 Technical Details (To Be Discovered)
+## Technical Details (To Be Discovered)
 
 ### Audio Format
 - Input format: ❓ (likely PCM 16kHz)
@@ -152,7 +152,7 @@ async with BidiAgent(model=model) as agent:
 
 ---
 
-## 📝 Notes
+## Notes
 
 ### Advantages of Nova 2 Sonic vs 11labs
 - Native AWS integration (no external API)
@@ -178,7 +178,7 @@ async with BidiAgent(model=model) as agent:
 
 ---
 
-## 🚀 Next Immediate Steps
+## Next Immediate Steps
 
 1. **Review Strands Nova Sonic docs** (in progress)
 2. **Update requirements.txt** with new packages
@@ -187,7 +187,7 @@ async with BidiAgent(model=model) as agent:
 
 ---
 
-## 📚 Resources
+## Resources
 
 - AWS Nova Docs: https://docs.aws.amazon.com/nova/latest/userguide/speech.html
 - Strands SDK: https://strandsagents.com/latest/documentation/docs/

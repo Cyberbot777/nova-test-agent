@@ -6,7 +6,7 @@
 
 ---
 
-## ✅ What We Accomplished
+## What We Accomplished
 
 ### 1. **Confirmed Nova 2 Sonic Availability**
 - ✅ Model available in your AWS account
@@ -39,7 +39,7 @@
 
 ---
 
-## 📊 Progress Status
+## Progress Status
 
 **Phase 1: Research & Setup** ✅ **COMPLETE**
 - [x] Research Nova Sonic API
@@ -52,7 +52,7 @@
 
 ---
 
-## 🎯 Next Immediate Step (Coffee Cup #4? ☕)
+## Next Immediate Step
 
 ### **Test the Connection**
 
@@ -70,20 +70,20 @@ python test_nova_sonic.py
 
 ---
 
-## 📝 Key Decisions Made
+## Key Decisions Made
 
-### ✅ Go Forward with Nova 2 Sonic
+### Go Forward with Nova 2 Sonic
 - Model is ready and accessible
 - Strands SDK support exists
 - Meets R&D cutting-edge requirements
 - Good 11labs replacement candidate
 
-### ✅ Use Strands Experimental Bidirectional API
+### Use Strands Experimental Bidirectional API
 - `BidiNovaSonicModel` instead of regular `BedrockModel`
 - `BidiAgent` for streaming audio
 - `BidiAudioIO` and `BidiTextIO` for I/O handling
 
-### ✅ Follow Company Standards
+### Follow Company Standards
 - Strands SDK usage: ✅
 - AgentCore deployment path: ✅
 - Region us-east-1: ✅
@@ -130,14 +130,14 @@ python test_nova_sonic.py
 
 ---
 
-## 🚀 Next Session Plan (When Ready)
+## Next Session Plan (When Ready)
 
-### If Test Succeeds ✅
+### If Test Succeeds
 1. Document the API behavior we observe
 2. Test with actual audio input/output
 3. Start updating `nova_agent.py` with real integration
 
-### If Test Fails ❌
+### If Test Fails
 1. Debug the error (likely auth or package issue)
 2. Search for additional Strands SDK examples
 3. Potentially contact Strands support or check their GitHub
@@ -150,7 +150,7 @@ python test_nova_sonic.py
 
 ---
 
-## 📚 Resources Collected
+## Resources Collected
 
 - AWS Nova Sonic Docs: https://docs.aws.amazon.com/nova/latest/userguide/speech.html
 - Strands SDK Nova Sonic: https://strandsagents.com/latest/documentation/docs/user-guide/concepts/experimental/bidirectional-streaming/models/nova_sonic/
@@ -160,7 +160,7 @@ python test_nova_sonic.py
 
 ---
 
-## ⏸️ Stopping Point
+## Stopping Point
 
 Good stopping point for today! We have:
 - ✅ Clear understanding of the technology

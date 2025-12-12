@@ -2,18 +2,18 @@
 
 A simple proof of concept for a streaming voice agent using **Amazon Nova 2.0 Sonic** - a speech-to-speech model with bidirectional streaming capabilities.
 
-## 🎉 **UPDATE: December 12, 2025 - NOVA 2 SONIC CONFIRMED!**
+## UPDATE: December 12, 2025 - NOVA 2 SONIC CONFIRMED!
 
-✅ **Model Available:** `amazon.nova-2-sonic-v1:0` in US East-1  
-✅ **Strands SDK Support:** Experimental bidirectional streaming ready  
-✅ **Test Script Created:** Ready to validate connection  
-📚 **Documentation:** See `NOVA_SONIC_RESEARCH.md` and `PROGRESS_SESSION_1.md`
+- **Model Available:** `amazon.nova-2-sonic-v1:0` in US East-1  
+- **Strands SDK Support:** Experimental bidirectional streaming ready  
+- **Test Script Created:** Ready to validate connection  
+- **Documentation:** See `NOVA_SONIC_RESEARCH.md` and `PROGRESS_SESSION_1.md`
 
-**Status:** 🟢 **Ready to build** - Framework validated, dependencies updated
+**Status:** Ready to build - Framework validated, dependencies updated
 
 ---
 
-## 🎯 Goal
+## Goal
 
 Create a voice agent where you can:
 - **Speak** to the agent (Nova transcribes)
@@ -21,7 +21,7 @@ Create a voice agent where you can:
 - **Agent speaks back** (Nova generates speech)
 - **Text streams** to the screen in real-time
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 NOVA/
@@ -44,34 +44,34 @@ NOVA/
 └── README.md           # This file
 ```
 
-## ✅ What Was Done
+## What Was Done
 
 ### 1. Frontend (Copied from `test-frontend/client`)
-- ✅ React app with Vite
-- ✅ Streaming SSE handling
-- ✅ Dark theme UI
-- ✅ Real-time text display
-- ✅ Typing animations
-- ✅ Error handling
-- ⚠️ **NEEDS**: Audio recording (microphone access)
-- ⚠️ **NEEDS**: Audio playback for agent responses
+- [x] React app with Vite
+- [x] Streaming SSE handling
+- [x] Dark theme UI
+- [x] Real-time text display
+- [x] Typing animations
+- [x] Error handling
+- [ ] **NEEDS**: Audio recording (microphone access)
+- [ ] **NEEDS**: Audio playback for agent responses
 
 ### 2. Backend (Skeleton from `test-frontend/proxy`)
-- ✅ Express server structure
-- ✅ CORS setup
-- ⚠️ **NEEDS**: WebSocket for audio streaming (not just SSE)
-- ⚠️ **NEEDS**: Nova Sonic API integration
-- ⚠️ **NEEDS**: Bidirectional audio stream handling
+- [x] Express server structure
+- [x] CORS setup
+- [ ] **NEEDS**: WebSocket for audio streaming (not just SSE)
+- [ ] **NEEDS**: Nova Sonic API integration
+- [ ] **NEEDS**: Bidirectional audio stream handling
 
 ### 3. Agent (Adapted from `ScoutAgent/test_agent.py`)
-- ✅ Strands SDK setup
-- ✅ BedrockModel configuration
-- ✅ Async/await patterns
-- ✅ Streaming response handling
-- ⚠️ **NEEDS**: Nova Sonic model integration
-- ⚠️ **NEEDS**: Audio input/output handling
+- [x] Strands SDK setup
+- [x] BedrockModel configuration
+- [x] Async/await patterns
+- [x] Streaming response handling
+- [ ] **NEEDS**: Nova Sonic model integration
+- [ ] **NEEDS**: Audio input/output handling
 
-## 🔬 Research Needed
+## Research Needed
 
 Before this POC can work, we need to determine:
 
@@ -110,7 +110,7 @@ Before this POC can work, we need to determine:
 - [ ] Format conversion in browser or backend?
 - [ ] How to play audio responses? (Audio element? Web Audio API?)
 
-## 🚀 Quick Start (Once Research is Complete)
+## Quick Start (Once Research is Complete)
 
 ### Prerequisites
 - Node.js 18+
@@ -141,7 +141,7 @@ pip install -r requirements.txt
 python nova_agent.py  # Test in console first
 ```
 
-## 📚 Resources to Check
+## Resources to Check
 
 - [Amazon Nova 2 Documentation](https://docs.aws.amazon.com/nova/)
 - [Bedrock Converse API](https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html)
@@ -149,7 +149,7 @@ python nova_agent.py  # Test in console first
 - AWS Bedrock pricing for Nova Sonic
 - Code examples for bidirectional audio streaming
 
-## 🎬 Development Plan
+## Development Plan
 
 1. **Research Phase** (See checklist above)
 2. **Backend Integration** - Connect to Nova Sonic API
@@ -158,14 +158,14 @@ python nova_agent.py  # Test in console first
 5. **Testing** - Local voice interaction testing
 6. **Polish** - Error handling, UX improvements
 
-## 📝 Notes
+## Notes
 
 - **No AWS AgentCore deployment** - This is local testing only
 - **No tools/functions** - Simple conversation agent
 - **Streaming text is key** - Even though it's voice, we display text
 - **Start simple** - Get basic voice working before adding features
 
-## 🤝 Contributing
+## Contributing
 
 This is a personal POC. Once we get Nova Sonic working, we can:
 - Add conversation memory
@@ -175,7 +175,7 @@ This is a personal POC. Once we get Nova Sonic working, we can:
 
 ---
 
-**Status:** 🟡 Setup complete, awaiting Nova Sonic API research
+**Status:** Setup complete, awaiting Nova Sonic API research
 
 **Next Step:** Research Nova Sonic API specifications and update integration code
 

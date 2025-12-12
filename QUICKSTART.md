@@ -1,4 +1,4 @@
-# 🚀 Quick Start Commands
+# Quick Start Commands
 
 Copy and paste these commands to get started quickly.
 
@@ -54,12 +54,12 @@ Once all running:
 
 ## Current Status
 
-⚠️ **Works:** Text streaming, UI, basic architecture  
-⚠️ **Pending:** Nova Sonic API, audio recording, audio playback
+**Works:** Text streaming, UI, basic architecture  
+**Pending:** Nova Sonic API, audio recording, audio playback
 
 ## Next Steps
 
-See `README.md` Section: **🔬 Research Needed** for Nova integration checklist.
+See `README.md` Section: **Research Needed** for Nova integration checklist.
 
 ---
 

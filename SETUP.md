@@ -78,19 +78,19 @@ Should return your AWS account information.
 
 ## Current Limitations
 
-⚠️ **This is a placeholder setup**. The following are NOT yet implemented:
+**This is a placeholder setup**. The following are NOT yet implemented:
 
-- ❌ Nova Sonic API integration
-- ❌ Audio recording from microphone
-- ❌ Audio playback of responses
-- ❌ Bidirectional audio streaming
-- ❌ Speech-to-speech functionality
+- [ ] Nova Sonic API integration
+- [ ] Audio recording from microphone
+- [ ] Audio playback of responses
+- [ ] Bidirectional audio streaming
+- [ ] Speech-to-speech functionality
 
-✅ **What DOES work:**
-- Frontend UI (text mode)
-- Backend server (placeholder responses)
-- Agent logic (using Claude instead of Nova)
-- Text streaming display
+**What DOES work:**
+- [x] Frontend UI (text mode)
+- [x] Backend server (placeholder responses)
+- [x] Agent logic (using Claude instead of Nova)
+- [x] Text streaming display
 
 ## Troubleshooting
 

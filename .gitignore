@@ -41,6 +41,10 @@ frontend/build/
 
 # Python virtual environments
 venv/
+.venv/
 env/
 ENV/
+
+# Personal progress notes
+update-docs/
 

@@ -2,28 +2,29 @@
 strands-agents>=0.1.0
 
 # AWS SDK for Bedrock (core Bedrock access)
-boto3>=1.35.0
+boto3>=1.28.0
 
 # AWS SDK for Bedrock Runtime (bidirectional streaming support)
-aws-sdk-bedrock-runtime>=0.2.0
+aws-sdk-bedrock-runtime
+
+# Smithy core packages (required for Nova Sonic auth)
+smithy-aws-core>=0.0.1
+
+# WebSocket server
+websockets==10.4
 
 # Audio I/O (required for Nova Sonic audio streaming)
-pyaudio>=0.2.14
-sounddevice>=0.5.3
-numpy>=2.3.5
+pyaudio>=0.2.13
+numpy>=1.24.0
 
-# Terminal UI (for interactive testing)
-prompt_toolkit>=3.0.52
+# For async operations
+asyncio>=3.4.3
+
+# Environment variables
+python-dotenv>=1.0.0
 
 # AWS Bedrock AgentCore (production deployment)
 bedrock-agentcore>=1.0.0
 
 # AWS Observability
 aws-opentelemetry-distro==0.12.2
-
-# For async operations
-asyncio>=3.4.3
-
-# NOTE: strands-amazon-nova is NOT for Bedrock - it's for api.nova.amazon.com
-# We use boto3 directly for Nova Sonic bidirectional streaming
-

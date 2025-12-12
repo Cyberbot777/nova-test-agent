@@ -1,75 +1,94 @@
 # Nova Voice Agent
 
-Python agent using Strands SDK + Amazon Nova 2.0 Sonic for voice conversations.
+Python agent using Amazon Nova Sonic for bidirectional streaming voice conversations.
 
-## Installation
+## Nova Sonic Voice Server
 
+This is the real Nova Sonic implementation with bidirectional audio streaming.
+
+### Quick Start
+
+**1. Set AWS credentials:**
+```bash
+export AWS_ACCESS_KEY_ID=your_key
+export AWS_SECRET_ACCESS_KEY=your_secret
+export AWS_DEFAULT_REGION=us-east-1
+```
+
+**2. Install dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
 
-## Current Usage (Console Test Mode)
-
+**3. Run the voice server:**
 ```bash
-python nova_agent.py
+python run_voice_server.py --port 8080
 ```
 
-This runs in text mode for testing the agent logic before audio integration.
+**4. Connect your frontend to `ws://localhost:8080`**
 
-## AWS Credentials
-
-Ensure you have AWS credentials configured:
+### Command Line Options
 
 ```bash
-# Option 1: AWS CLI
-aws configure
+python run_voice_server.py --help
 
-# Option 2: Environment variables
-export AWS_ACCESS_KEY_ID=your_key
-export AWS_SECRET_ACCESS_KEY=your_secret
-export AWS_REGION=us-east-1
+Options:
+  --host    WebSocket server host (default: localhost)
+  --port    WebSocket server port (default: 8080)
+  --model   Nova Sonic model ID (default: amazon.nova-sonic-v1:0)
+  --region  AWS region (default: us-east-1)
 ```
 
-## Current State
-
-**Placeholder Mode**
-- Using Claude Sonnet as placeholder model
-- Text input/output only
-- Streaming works
-- System prompt optimized for voice
-
-## What Needs to Be Done
-
-1. **Find Nova Sonic Model ID**
-   - Current guess: `amazon.nova-sonic-v2:0`
-   - Need to verify in AWS Bedrock console or docs
-
-2. **Configure for Audio**
-   - Understand Nova Sonic's audio input format
-   - Implement audio chunk handling
-   - Configure for speech-to-speech mode
-
-3. **Bidirectional Streaming**
-   - Implement audio stream ingestion
-   - Handle Nova's audio + text responses
-   - Synchronize audio and text output
-
-4. **Integration with Backend**
-   - Connect to backend WebSocket server
-   - Handle audio chunk streaming
-   - Coordinate with frontend
-
-## Testing
-
-Once Nova integration is complete:
+### Full Command (with credentials inline)
 
 ```bash
-# Console test (text mode)
-python nova_agent.py
-
-# Backend integration test
-# Run backend server, then test with frontend
+export AWS_ACCESS_KEY_ID=YOUR_KEY && \
+export AWS_SECRET_ACCESS_KEY="YOUR_SECRET" && \
+export AWS_DEFAULT_REGION=us-east-1 && \
+python run_voice_server.py --port 8080
 ```
 
-See main README.md for complete research checklist.
+## Files
 
+```
+agent/
+  run_voice_server.py      # Main entry point - run this!
+  nova_voice/
+    __init__.py            # Package init
+    s2s_events.py          # Nova Sonic event definitions
+    s2s_session_manager.py # Bidirectional stream manager
+    server.py              # WebSocket server
+  nova_agent.py            # Legacy text-only agent (placeholder)
+  requirements.txt         # Python dependencies
+```
+
+## Architecture
+
+```
+Frontend (Browser)
+    |
+    | WebSocket (ws://localhost:8080)
+    v
+run_voice_server.py
+    |
+    | Nova Sonic Bidirectional Stream
+    v
+Amazon Nova Sonic (amazon.nova-sonic-v1:0)
+    |
+    | Speech-to-Speech (no Polly needed!)
+    v
+Audio Response streamed back to Frontend
+```
+
+## Features
+
+- [x] Bidirectional audio streaming
+- [x] Real-time speech-to-speech
+- [x] WebSocket server for frontend connection
+- [x] No Polly needed - Nova Sonic does voice output
+- [x] Semantic turn detection
+
+## Legacy Agent
+
+The `nova_agent.py` file is a legacy text-only placeholder using Claude.
+Use `run_voice_server.py` for the real Nova Sonic voice experience.

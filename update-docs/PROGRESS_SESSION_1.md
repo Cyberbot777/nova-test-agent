@@ -1,4 +1,4 @@
-# Session 1 Progress: Nova 2 Sonic Setup (Coffee Cup #2-3 ☕)
+# Session 1 Progress: Nova 2 Sonic Setup
 
 **Date:** December 12, 2025  
 **Session Goal:** Research and validate Nova 2 Sonic feasibility  
@@ -9,39 +9,56 @@
 ## What We Accomplished
 
 ### 1. **Confirmed Nova 2 Sonic Availability**
-- ✅ Model available in your AWS account
-- ✅ Region: US East-1 (company standard)
-- ✅ Model ID: `amazon.nova-2-sonic-v1:0`
-- ✅ Console access confirmed via screenshot
+- [x] Model available in your AWS account
+- [x] Region: US East-1 (company standard)
+- [x] Model ID: `amazon.nova-2-sonic-v1:0`
+- [x] Console access confirmed via screenshot
+
+**Nova Sonic Capabilities:**
+- Real-time bidirectional audio streaming
+- Speech input → Speech output + Text output
+- Multilingual support (10+ languages)
+- Tool calling / RAG support
+- 1M token context window
+- Handles interruptions gracefully
+- Background noise robust
+
+**Advantages over 11labs:**
+- Native AWS integration (no external API)
+- Unified speech-to-speech (no separate STT/TTS)
+- Tool calling support built-in
+- Lower latency (within AWS network)
+- Cost benefits (AWS pricing)
+- 1M context window vs limited history
 
 ### 2. **Discovered Strands SDK Support**
-- ✅ Strands SDK has experimental Nova Sonic support!
-- ✅ Package: `strands-amazon-nova`
-- ✅ Uses bidirectional streaming patterns
-- ✅ Compatible with company standards (Strands SDK + AgentCore)
+- [x] Strands SDK has experimental Nova Sonic support!
+- [x] Package: `strands-amazon-nova`
+- [x] Uses bidirectional streaming patterns
+- [x] Compatible with company standards (Strands SDK + AgentCore)
 
 ### 3. **Updated Project Dependencies**
-- ✅ Updated `agent/requirements.txt` with:
+- [x] Updated `agent/requirements.txt` with:
   - `strands-amazon-nova>=0.1.0` (Nova Sonic support)
   - `bedrock-agentcore>=1.0.0` (production deployment)
   - `aws-opentelemetry-distro==0.12.2` (observability)
 
 ### 4. **Created Research Documentation**
-- ✅ `NOVA_SONIC_RESEARCH.md` - Comprehensive research notes
-- ✅ Documented API details, architecture, and plan
-- ✅ Captured advantages over 11labs
+- [x] `NOVA_SONIC_RESEARCH.md` - Comprehensive research notes
+- [x] Documented API details, architecture, and plan
+- [x] Captured advantages over 11labs
 
 ### 5. **Created Test Script**
-- ✅ `agent/test_nova_sonic.py` - Minimal connection test
-- ✅ Uses Strands SDK experimental bidirectional API
-- ✅ Tests model initialization and I/O setup
-- ✅ Ready to validate connection
+- [x] `agent/test_nova_sonic.py` - Minimal connection test
+- [x] Uses Strands SDK experimental bidirectional API
+- [x] Tests model initialization and I/O setup
+- [x] Ready to validate connection
 
 ---
 
 ## Progress Status
 
-**Phase 1: Research & Setup** ✅ **COMPLETE**
+**Phase 1: Research & Setup** [x] **COMPLETE**
 - [x] Research Nova Sonic API
 - [x] Confirm model availability
 - [x] Find Strands SDK support
@@ -65,8 +82,8 @@ python test_nova_sonic.py
 ```
 
 **Expected outcomes:**
-1. ✅ **Success** - Model initializes, we proceed to audio testing
-2. ⚠️ **Error** - We debug and document the issue
+1. [x] **Success** - Model initializes, we proceed to audio testing
+2. WARNING: **Error** - We debug and document the issue
 
 ---
 
@@ -84,14 +101,14 @@ python test_nova_sonic.py
 - `BidiAudioIO` and `BidiTextIO` for I/O handling
 
 ### Follow Company Standards
-- Strands SDK usage: ✅
-- AgentCore deployment path: ✅
-- Region us-east-1: ✅
-- Async/await patterns: ✅
+- Strands SDK usage: [x]
+- AgentCore deployment path: [x]
+- Region us-east-1: [x]
+- Async/await patterns: [x]
 
 ---
 
-## 🔍 What We Learned
+## What We Learned
 
 ### About Nova 2 Sonic
 - Brand new (released Dec 2, 2025 - just 10 days ago)
@@ -114,7 +131,7 @@ python test_nova_sonic.py
 
 ---
 
-## 📂 Files Created/Modified
+## Files Created/Modified
 
 ### Created:
 1. `NOVA_SONIC_RESEARCH.md` - Research documentation
@@ -144,7 +161,7 @@ python test_nova_sonic.py
 
 ---
 
-## 💬 Boss Update Template
+## Boss Update Template
 
 *"We've validated that Nova 2 Sonic is available and ready to use. Strands SDK has experimental support for it, which aligns perfectly with our standards. Created test scripts and documentation. Next step is to validate the connection and start building the actual voice agent. Timeline: 2-3 weeks for full POC to replace 11labs."*
 
@@ -163,12 +180,12 @@ python test_nova_sonic.py
 ## Stopping Point
 
 Good stopping point for today! We have:
-- ✅ Clear understanding of the technology
-- ✅ Test framework in place
-- ✅ Documentation started
-- ✅ Next steps defined
+- [x] Clear understanding of the technology
+- [x] Test framework in place
+- [x] Documentation started
+- [x] Next steps defined
 
-**We went slow, one thing at a time, as requested.** 🐢
+**We went slow, one thing at a time, as requested.**
 
 Ready to pick up next time with the connection test!
 
@@ -176,7 +193,6 @@ Ready to pick up next time with the connection test!
 
 **Session Duration:** ~30-45 minutes (research + setup)  
 **Lines of Code:** ~250 (mostly documentation and test script)  
-**Confidence Level:** 🟢 High - Path is clear, tools are available
+**Confidence Level:** High - Path is clear, tools are available
 
-☕ Time for coffee cup #4!
 

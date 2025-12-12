@@ -8,7 +8,16 @@ This is the real Nova Sonic implementation with bidirectional audio streaming.
 
 ### Quick Start
 
-**1. Set AWS credentials:**
+**1. Set AWS credentials (choose one):**
+
+**Option A: Create `.env` file (recommended):**
+```bash
+# Copy the example and edit with your credentials
+cp env.example .env
+# Edit .env with your actual AWS credentials
+```
+
+**Option B: Environment variables:**
 ```bash
 export AWS_ACCESS_KEY_ID=your_key
 export AWS_SECRET_ACCESS_KEY=your_secret

@@ -7,11 +7,11 @@ This runs the Nova Sonic bidirectional streaming voice server.
 Usage:
     python run_voice_server.py --port 8080
 
-Requirements:
-    - AWS credentials set as environment variables:
-        export AWS_ACCESS_KEY_ID=your_key
-        export AWS_SECRET_ACCESS_KEY=your_secret
-        export AWS_DEFAULT_REGION=us-east-1
+Credentials:
+    Create a .env file in the agent/ folder with:
+        AWS_ACCESS_KEY_ID=your_key
+        AWS_SECRET_ACCESS_KEY=your_secret
+        AWS_DEFAULT_REGION=us-east-1
 """
 
 import asyncio
@@ -19,6 +19,17 @@ import argparse
 import os
 import sys
 import logging
+from pathlib import Path
+
+# Load .env file if it exists
+try:
+    from dotenv import load_dotenv
+    env_path = Path(__file__).parent / '.env'
+    if env_path.exists():
+        load_dotenv(env_path)
+        print(f"Loaded credentials from {env_path}")
+except ImportError:
+    pass  # dotenv not installed, use environment variables
 
 # Add the current directory to Python path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -41,10 +52,13 @@ def check_credentials():
     
     if not access_key or not secret_key:
         logger.error("AWS credentials not found!")
-        logger.error("Please set environment variables:")
-        logger.error("  export AWS_ACCESS_KEY_ID=your_key")
-        logger.error("  export AWS_SECRET_ACCESS_KEY=your_secret")
-        logger.error("  export AWS_DEFAULT_REGION=us-east-1")
+        logger.error("")
+        logger.error("Option 1: Create agent/.env file:")
+        logger.error("  AWS_ACCESS_KEY_ID=your_key")
+        logger.error("  AWS_SECRET_ACCESS_KEY=your_secret")
+        logger.error("  AWS_DEFAULT_REGION=us-east-1")
+        logger.error("")
+        logger.error("Option 2: Set environment variables before running")
         return False
     
     logger.info(f"AWS credentials found: {access_key[:8]}...")

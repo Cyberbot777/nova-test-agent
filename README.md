@@ -1,17 +1,46 @@
-# Nova Voice Agent
+# Nova Voice Agent Template
 
 Production-ready bidirectional streaming voice agent using **Amazon Nova 2.0 Sonic**.
 
 ## What This Is
 
-A voice agent with real-time speech-to-speech conversation:
+A **reusable template** for building voice agents with real-time speech-to-speech conversation:
 - Speak to the agent (microphone → Nova Sonic)
 - Agent responds with voice (Nova Sonic → speakers)
 - Text transcription displayed in real-time
 - No Polly needed - Nova Sonic handles both transcription and speech generation
+- **Tool-ready:** Add your own tools and domain logic
 
 **Model:** `amazon.nova-sonic-v1:0`  
 **Region:** `us-east-1`
+
+---
+
+## Using as a Template
+
+**This is a clean template - clone it for specific use cases:**
+
+```bash
+# Clone for your specific voice agent
+cd /path/to/your/projects
+cp -r nova-test-agent my-voice-agent
+cd my-voice-agent
+
+# Add your customizations:
+# - Custom system prompts (agent/nova_voice/s2s_events.py)
+# - Tool integrations (add your own scout_tools/, etc.)
+# - Domain-specific logic (create your_agent.py)
+```
+
+**What's Included (Reusable):**
+- `nova_voice/` - Core Nova Sonic streaming engine
+- `run_voice_server.py` - Generic voice server entry point
+- `frontend/` - React voice UI with audio streaming
+
+**What You Add:**
+- Your system prompt and agent personality
+- Your tools (MCP, Lambda, APIs, databases)
+- Your domain logic and configuration
 
 ---
 
@@ -72,23 +101,23 @@ npm start
 ```
 nova-test-agent/
 ├── agent/
-│   ├── nova_voice/           # Nova Sonic core implementation
-│   │   ├── s2s_events.py     # Event definitions
-│   │   ├── s2s_session_manager.py  # Stream manager
-│   │   └── server.py         # WebSocket server
-│   ├── run_voice_server.py   # Main entry point
-│   ├── requirements.txt      # Python dependencies
-│   ├── .env                  # AWS credentials (create from env.example)
-│   └── env.example           # Template for credentials
+│   ├── nova_voice/                    # Core Nova Sonic streaming engine (reusable)
+│   │   ├── s2s_events.py              # Event definitions & system prompt
+│   │   ├── s2s_session_manager.py     # Bidirectional stream manager
+│   │   └── server.py                  # WebSocket server
+│   ├── run_voice_server.py            # Generic entry point
+│   ├── requirements.txt               # Python dependencies
+│   ├── .env                           # AWS credentials (create from env.example)
+│   └── env.example                    # Credential template
 │
-├── frontend/
+├── frontend/                          # React voice UI (reusable)
 │   ├── src/
-│   │   ├── VoiceAgent.js     # Voice UI component
-│   │   ├── helper/           # Audio processing utilities
-│   │   └── components/       # React components
-│   └── package.json          # Node.js dependencies
+│   │   ├── VoiceAgent.js              # Voice UI component
+│   │   ├── helper/                    # Audio streaming utilities
+│   │   └── components/                # React components
+│   └── package.json
 │
-└── backend/                  # Deprecated (use agent/ instead)
+└── update-docs/                       # Development session notes
 ```
 
 ---

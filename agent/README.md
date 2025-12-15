@@ -4,7 +4,7 @@ Python agent using Amazon Nova Sonic for bidirectional streaming voice conversat
 
 ## Nova Sonic Voice Server
 
-This is the real Nova Sonic implementation with bidirectional audio streaming.
+Nova Sonic implementation with bidirectional audio streaming.
 
 ### Quick Start
 
@@ -64,11 +64,11 @@ agent/
   run_voice_server.py      # Main entry point - run this!
   nova_voice/
     __init__.py            # Package init
-    s2s_events.py          # Nova Sonic event definitions
+    s2s_events.py          # Nova Sonic event definitions & system prompt
     s2s_session_manager.py # Bidirectional stream manager
     server.py              # WebSocket server
-  nova_agent.py            # Legacy text-only agent (placeholder)
   requirements.txt         # Python dependencies
+  env.example              # AWS credentials template
 ```
 
 ## Architecture
@@ -96,8 +96,13 @@ Audio Response streamed back to Frontend
 - [x] WebSocket server for frontend connection
 - [x] No Polly needed - Nova Sonic does voice output
 - [x] Semantic turn detection
+- [x] Interrupt/barge-in support
+- [x] Tool integration ready (add your own tools)
 
-## Legacy Agent
+## Customization
 
-The `nova_agent.py` file is a legacy text-only placeholder using Claude.
-Use `run_voice_server.py` for the real Nova Sonic voice experience.
+**System Prompt:** Edit `nova_voice/s2s_events.py` → `DEFAULT_SYSTEM_PROMPT`
+
+**Voice Selection:** Edit `nova_voice/s2s_events.py` → `DEFAULT_AUDIO_OUTPUT_CONFIG` → `voiceId`
+
+**Add Tools:** Pass `tool_config` to `S2sEvent.prompt_start()` with your tool definitions

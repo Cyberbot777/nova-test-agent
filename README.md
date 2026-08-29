@@ -205,11 +205,5 @@ Edit `agent/run_voice_server.py` to change:
 
 ---
 
-## License
-
-Internal use - Kind Lending
-
----
-
 **Status:** Production ready  
 **Last Updated:** December 12, 2025
